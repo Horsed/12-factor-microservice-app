@@ -8,15 +8,18 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: '**/*.*.md',
-        tasks: ['shell:extractCode', 'mocha'],
+        tasks: ['shell:extractCode', 'mochaTest'],
         options: {
           interrupt: true,
         },
       },
     },
 
-    mocha: {
+    mochaTest: {
       test: {
+        options: {
+          reporter: 'spec'
+        },
         src: ['test/**/*.js'],
       }
     },
@@ -53,9 +56,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-string-replace');
-  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['shell:extractCode', 'mochaTest', 'watch']);
   grunt.registerTask('extract', ['shell:extractCode']);
   grunt.registerTask('publish', ['shell:publish', 'string-replace:dist']);
 
