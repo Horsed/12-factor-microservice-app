@@ -1,4 +1,4 @@
-Building a twelve-factor microservice app
+Building a twelve-factor microservice app [![Build Status](https://secure.travis-ci.org/Horsed/12-factor-microservice-app.png)](http://travis-ci.org/Horsed/12-factor-microservice-app)
 =========================================
 
 An app written in literate JavaScript. The result might be a book.
